@@ -1,27 +1,47 @@
-from conftest import validate_id
-from app.data import commands
+from helpers import is_id_valid
+from app.data import commands_dict
+from . import commands
 
 
-class RunCommands:
-    def __init__(self, app):
-        self.app = app
-        self.commands = self.app.commands
+def receive_and_process_command():
+    command_input = input("Введите команду:").lower()
+    if command_input not in commands_dict["стоп"]:
+        while True:
+            found = False
+            for c in commands_dict:
+                if command_input in commands_dict[c]:
+                    found = True
+                    process_command(command_input)
+                    command_input = input("Введите команду:").lower()
+            if not found:
+                print(f'Неизвестная команда! Попробуйте ещё раз')
+                command_input = input("Введите команду:").lower()
+    else:
+        commands.stop()
 
-    @validate_id
-    def process_command(self, input_command: str, id: int = None):
-        command = input_command.lower()
-        if command in commands["узнать"]:
-            self.commands.get_status_by_id(id)
-        elif command in commands["повысить"]:
-            self.commands.upgrade_status(id)
-        elif command in commands["понизить"]:
-            self.commands.downgrade_status(id)
-        elif command in commands["выписать"]:
-            self.commands.discharge_patient(id)
-        elif command in commands["рассчитать"]:
-            self.commands.calculate_statistics()
-        elif command in commands["стоп"]:
-            exit()
-        else:
-            print(f"Неизвестная команда: {command}! Попробуйте ещё раз")
+
+def process_command(command: str):
+    if command in commands_dict["узнать"]:
+        commands.get_status_by_id(add_id())
+    elif command in commands_dict["повысить"]:
+        commands.upgrade_status(add_id())
+    elif command in commands_dict["понизить"]:
+        commands.downgrade_status(add_id())
+    elif command in commands_dict["выписать"]:
+        commands.discharge_patient(add_id())
+    elif command in commands_dict["рассчитать"]:
+        commands.calculate_statistics()
+    elif command in commands_dict["стоп"]:
+        commands.stop()
+
+
+def add_id() -> int:
+    id_input = input("Введите ID:")
+    if is_id_valid(id_input):
+        return int(id_input)
+    else:
+        receive_and_process_command()
+
+
+
 

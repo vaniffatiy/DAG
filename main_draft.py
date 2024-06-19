@@ -121,16 +121,16 @@
 #         print(f"Неизвестная команда: {command}! Попробуйте ещё раз")
 #
 #
-# process_command("повысить статус пациента", 3)
-# process_command("get status", 5)
-# process_command("повысить статус пациента", 3)
-# process_command("повысить статус пациента", 3)
-# process_command("узнать статус пациента", 4)
-# process_command("понизить статус пациента", 4)
-# process_command("понизить статус пациента", 4)
-# process_command("выписать пациента", 5)
-# process_command("рассчитать статистику")
-# process_command("стоп")
+process_command("повысить статус пациента", 3)
+process_command("get status", 5)
+process_command("повысить статус пациента", 3)
+process_command("повысить статус пациента", 3)
+process_command("узнать статус пациента", 4)
+process_command("понизить статус пациента", 4)
+process_command("понизить статус пациента", 4)
+process_command("выписать пациента", 5)
+process_command("рассчитать статистику")
+process_command("стоп")
 
 
 
