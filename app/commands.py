@@ -4,10 +4,7 @@ from app.data import patients_list, statuses_dict
 
 def get_status_by_id(id: int):
     status_index = patients_list[id-1]
-    if status_index is None:
-        print("Этот пациент выписан")
-    else:
-        print(statuses_dict[status_index])
+    print(statuses_dict[status_index])
 
 
 def upgrade_status(id: int):
