@@ -4,14 +4,14 @@ from app.data import patients_list, statuses_dict
 
 def get_status_by_id(id: int):
     status_index = patients_list[id-1]
-    print(statuses_dict[status_index])
+    print(f'Статус пациента: "{statuses_dict[status_index]}"')
 
 
 def upgrade_status(id: int):
     index = id-1
     if patients_list[index] < 3:
         patients_list[index] += 1
-        print(f"Новый статус пациента: {statuses_dict[patients_list[index]]}")
+        print(f'Новый статус пациента: "{statuses_dict[patients_list[index]]}"')
     else:
         request = input("Желаете выписать этого клиента? (да/нет): ")
         if request.lower() == "да":
@@ -43,6 +43,3 @@ def calculate_statistics():
     print(stat)
 
 
-def stop():
-    print("Сеанс завершён.")
-    exit()

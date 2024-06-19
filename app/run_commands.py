@@ -12,12 +12,15 @@ def receive_and_process_command():
                 if command_input in commands_dict[c]:
                     found = True
                     process_command(command_input)
+                    if command_input in commands_dict["стоп"]:
+                        print("Сеанс завершён.")
+                        return
                     command_input = input("Введите команду:").lower()
             if not found:
                 print(f'Неизвестная команда! Попробуйте ещё раз')
                 command_input = input("Введите команду:").lower()
     else:
-        commands.stop()
+        print("Сеанс завершён.")
 
 
 def process_command(command: str):
@@ -31,8 +34,6 @@ def process_command(command: str):
         commands.discharge_patient(add_id())
     elif command in commands_dict["рассчитать"]:
         commands.calculate_statistics()
-    elif command in commands_dict["стоп"]:
-        commands.stop()
 
 
 def add_id() -> int:
