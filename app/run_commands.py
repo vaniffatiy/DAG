@@ -16,10 +16,6 @@ def receive_and_process_command():
             if command_input in commands_dict[c]:
                 found = True
                 process_command(command_input)
-                if command_input in commands_dict["стоп"]:
-                    session_active = False
-                    print("Сеанс завершён.")
-                    break
         if not found:
             print(f'Неизвестная команда! Попробуйте ещё раз')
 
