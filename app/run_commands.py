@@ -4,7 +4,7 @@ from . import commands
 
 
 def receive_and_process_command():
-    command_input = input("Введите команду:").lower()
+    command_input = input("Введите команду: ").lower()
     if command_input not in commands_dict["стоп"]:
         while True:
             found = False
@@ -15,10 +15,10 @@ def receive_and_process_command():
                     if command_input in commands_dict["стоп"]:
                         print("Сеанс завершён.")
                         return
-                    command_input = input("Введите команду:").lower()
+                    command_input = input("Введите команду: ").lower()
             if not found:
                 print(f'Неизвестная команда! Попробуйте ещё раз')
-                command_input = input("Введите команду:").lower()
+                command_input = input("Введите команду: ").lower()
     else:
         print("Сеанс завершён.")
 
@@ -34,10 +34,12 @@ def process_command(command: str):
         commands.discharge_patient(add_id())
     elif command in commands_dict["рассчитать"]:
         commands.calculate_statistics()
+    elif command in commands_dict["стоп"]:
+        return
 
 
 def add_id() -> int:
-    id_input = input("Введите ID:")
+    id_input = input("Введите ID: ")
     if is_id_valid(id_input):
         return int(id_input)
     else:

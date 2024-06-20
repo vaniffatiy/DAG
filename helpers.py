@@ -5,7 +5,7 @@ def filter_invalid_values(id: str) -> str:
     if not id.isdigit() or int(id) < 0:
         response = "Ошибка. ID пациента должно быть числом (целым, положительным)"
         print(response)
-    elif int(id) not in range(201):
+    elif int(id) not in range(201) or patients_list[int(id)-1] is None:
         response = "Ошибка. В больнице нет пациента с таким ID"
         print(response)
     else:

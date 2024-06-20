@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="023c2436-759e-405c-87cc-8679f308ba7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DAG_boarding_hospital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DAG_boarding_hospital.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run_commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run_commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_draft.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_draft.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
