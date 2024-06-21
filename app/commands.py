@@ -1,45 +1,46 @@
-from helpers import filter_patients_list
-from app.data import patients_list, statuses_dict
+from app.communicator import Communicator
+from app.hospital import Hospital
 
 
-def get_status_by_id(id: int):
-    status_index = patients_list[id-1]
-    print(f'Статус пациента: "{statuses_dict[status_index]}"')
+class Commands:
+    """Use Cases"""
 
+    def __init__(self):
+        self.hospital = Hospital()
+        self.communicator = Communicator()
 
-def upgrade_status(id: int):
-    index = id-1
-    if patients_list[index] < 3:
-        patients_list[index] += 1
-        print(f'Новый статус пациента: "{statuses_dict[patients_list[index]]}"')
-    else:
-        request = input("Желаете выписать этого клиента? (да/нет): ")
-        if request.lower() == "да":
-            discharge_patient(id)
+    def get_status_by_id(self, index: int):
+        status = self.hospital.get_patient_status(index)
+        self.communicator.print_patient_status(status)
+
+    def upgrade_status(self, index: int):
+        if self.hospital.is_patient_valid_for_status_change(index):
+            self.hospital.change_patient_status(index)
+            self.communicator.print_new_patient_status(self.hospital.get_patient_status(index))
         else:
-            print('Пациент остался в статусе "Готов к выписке"')
+            if self.communicator.is_patient_ready_for_discharge():
+                self.discharge_patient(index)
+            else:
+                self.communicator.notify_status_unchanged()
 
+    def downgrade_status(self, id: int):
+        index = id-1
+        if self.hospital.is_patient_valid_for_status_change(index, upgrade=False):
+            self.hospital.change_patient_status(index, upgrade=False)
+            self.communicator.print_new_patient_status(self.hospital.get_patient_status(index))
+        else:
+            self.communicator.notify_cannot_downgrade_status_error()
 
-def downgrade_status(id: int):
-    index = id-1
-    if patients_list[index] > 0:
-        patients_list[index] -= 1
-        print(f'Новый статус пациента: "{statuses_dict[patients_list[index]]}"')
-    else:
-        print("Ошибка. Нельзя понизить самый низкий статус (наши пациенты не умирают)")
+    def discharge_patient(self, index: int):
+        self.hospital.discharge_patient(index)
+        self.communicator.notify_patient_is_discharged()
 
-
-def discharge_patient(id: int):
-    patients_list[id-1] = None
-    print("Пациент выписан из больницы")
-
-
-def calculate_statistics():
-    patients = [patient for patient in patients_list if patient is not None]
-    stat = f'В больнице на данный момент находится {len(patients)} чел., из них: \n'
-    for i in range(4):
-        if len(filter_patients_list(i)) > 0:
-            stat += f'   - в статусе "{statuses_dict[i]}": {len(filter_patients_list(i))} чел. \n'
-    print(stat)
+    def calculate_statistics(self):
+        patients_amount = self.hospital.calculate_patients_total()
+        stat = f'В больнице на данный момент находится {patients_amount} чел., из них: \n'
+        for i in range(4):
+            if self.hospital.is_any_patients(i):
+                stat += f'   - в статусе "{self.hospital.get_statistics(i)["status"]}": {self.hospital.get_statistics(i)["amount"]} чел. \n'
+        self.communicator.print_statistics(stat)
 
 
