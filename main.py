@@ -1,4 +1,4 @@
-from app.administrator import receive_and_process_command
+from app.administrator import run_session
 
 if __name__ == "__main__":
-    receive_and_process_command()
+    run_session()

@@ -23,8 +23,7 @@ class Commands:
             else:
                 self.communicator.notify_status_unchanged()
 
-    def downgrade_status(self, id: int):
-        index = id-1
+    def downgrade_status(self, index: int):
         if self.hospital.is_patient_valid_for_status_change(index, upgrade=False):
             self.hospital.change_patient_status(index, upgrade=False)
             self.communicator.print_new_patient_status(self.hospital.get_patient_status(index))

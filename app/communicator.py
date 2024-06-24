@@ -1,17 +1,35 @@
+from app.hospital import Hospital
+
+
 class Communicator:
     """Controller and Presentator"""
+
+    def __init__(self):
+        self.hospital = Hospital()
+
+    def get_command(self) -> str | None:
+        command_input = input("Введите команду: ").lower()
+        if self.hospital.verify_command_type(command_input, "any_valid"):
+            return command_input
+        else:
+            self.notify_unknown_command()
+            return None
+
+    def get_id(self) -> int | None:
+        id_input = input("Введите ID: ")
+        response = self.hospital.filter_id_values(id_input)
+        if response == "invalid":
+            self.notify_id_invalid_error()
+        if response == "off_range":
+            self.notify_id_off_range_error()
+        if response == "OK":
+            return int(id_input)
 
     def print_patient_status(self, status: str):
         print(f'Статус пациента: "{status}"')
 
     def print_new_patient_status(self, status: str):
         print(f'Новый статус пациента: "{status}"')
-
-    def get_command(self) -> str:
-        return input("Введите команду: ").lower()
-
-    def get_id(self) -> str:
-        return input("Введите ID: ")
 
     def is_patient_ready_for_discharge(self) -> bool:
         request = input("Желаете выписать этого клиента? (да/нет): ")

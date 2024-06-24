@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="023c2436-759e-405c-87cc-8679f308ba7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/run_commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run_commands.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/data_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/administrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/administrator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/communicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/communicator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/hospital.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
