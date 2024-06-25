@@ -6,23 +6,29 @@ class Communicator:
 
     def __init__(self):
         self.hospital = Hospital()
+        self._commands_dict = {
+            "узнать статус пациента": "get status",
+            "повысить статус пациента": "status up",
+            "понизить статус пациента": "status down",
+            "выписать пациента": "discharge",
+            "рассчитать статистику": "calculate statistics",
+            "стоп": "stop"
+        }
 
     def get_command(self) -> str | None:
         command_input = input("Введите команду: ").lower()
-        if self.hospital.verify_command_type(command_input, "any_valid"):
-            return command_input
-        else:
-            self.notify_unknown_command()
-            return None
+        for key, value in self._commands_dict.items():
+            if command_input == key or command_input == value:
+                return key
+        self.notify_unknown_command()
 
     def get_id(self) -> int | None:
         id_input = input("Введите ID: ")
-        response = self.hospital.filter_id_values(id_input)
-        if response == "invalid":
+        if not id_input.isdigit() or int(id_input) < 0:
             self.notify_id_invalid_error()
-        if response == "off_range":
+        elif int(id_input) not in range(201) or self.hospital.is_patient_discharged(int(id_input) - 1):
             self.notify_id_off_range_error()
-        if response == "OK":
+        else:
             return int(id_input)
 
     def print_patient_status(self, status: str):

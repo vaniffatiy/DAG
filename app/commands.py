@@ -19,7 +19,7 @@ class Commands:
             self.communicator.print_new_patient_status(self.hospital.get_patient_status(index))
         else:
             if self.communicator.is_patient_ready_for_discharge():
-                self.discharge_patient(index)
+                self.discharge_patient_(index)
             else:
                 self.communicator.notify_status_unchanged()
 
@@ -30,7 +30,7 @@ class Commands:
         else:
             self.communicator.notify_cannot_downgrade_status_error()
 
-    def discharge_patient(self, index: int):
+    def discharge_patient_(self, index: int):
         self.hospital.discharge_patient(index)
         self.communicator.notify_patient_is_discharged()
 

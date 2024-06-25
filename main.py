@@ -1,4 +1,5 @@
-from app.administrator import run_session
+from app.administrator import Administrator
 
 if __name__ == "__main__":
-    run_session()
+    admin = Administrator()
+    admin.run_session()
