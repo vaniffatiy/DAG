@@ -1,11 +1,10 @@
-from app.hospital import Hospital
+from app.custom_exceptions import InvalidIDError
 
 
 class Communicator:
     """Controller and Presentator"""
 
     def __init__(self):
-        self.hospital = Hospital()
         self._commands_dict = {
             "узнать статус пациента": "get status",
             "повысить статус пациента": "status up",
@@ -22,14 +21,12 @@ class Communicator:
                 return key
         self.notify_unknown_command()
 
-    def get_id(self) -> int | None:
+    def get_id(self) -> int:
         id_input = input("Введите ID: ")
-        if not id_input.isdigit() or int(id_input) < 0:
-            self.notify_id_invalid_error()
-        elif int(id_input) not in range(201) or self.hospital.is_patient_discharged(int(id_input) - 1):
-            self.notify_id_off_range_error()
-        else:
+        if id_input.isdigit() and int(id_input) != 0:
             return int(id_input)
+        else:
+            raise InvalidIDError
 
     def print_patient_status(self, status: str):
         print(f'Статус пациента: "{status}"')
