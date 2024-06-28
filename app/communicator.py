@@ -23,10 +23,9 @@ class Communicator:
 
     def get_id(self) -> int:
         id_input = input("Введите ID: ")
-        if id_input.isdigit() and int(id_input) != 0:
-            return int(id_input)
-        else:
+        if not id_input.isdigit() or int(id_input) == 0:
             raise InvalidIDError
+        return int(id_input)
 
     def print_patient_status(self, status: str):
         print(f'Статус пациента: "{status}"')
@@ -47,18 +46,12 @@ class Communicator:
     def notify_patient_is_discharged(self):
         print("Пациент выписан из больницы")
 
-    def notify_id_invalid_error(self):
-        print("Ошибка. ID пациента должно быть числом (целым, положительным)")
-
-    def notify_id_off_range_error(self):
-        print("Ошибка. В больнице нет пациента с таким ID")
-
     def notify_unknown_command(self):
         print(f'Неизвестная команда! Попробуйте ещё раз')
 
     def notify_session_end(self):
         print("Сеанс завершён.")
 
-    def print_statistics(self, stat):
-        print(stat)
+    def print_info(self, info):
+        print(info)
 

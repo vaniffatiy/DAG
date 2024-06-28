@@ -9,7 +9,6 @@ class Hospital:
         return self._statuses_dict[status_index]
 
     def is_patient_valid_for_status_upgrade(self, index: int):
-        print(self._patients_list[index])
         return self._patients_list[index] < 3
 
     def is_patient_valid_for_status_downgrade(self, index: int):
@@ -31,19 +30,14 @@ class Hospital:
         return id_input in range(len(self._patients_list)+1)
 
     def _calculate_patients_by_status(self, status: int) -> int:
-        filtered_list = []
-        for patient_status in self._patients_list:
-            if status == patient_status:
-                filtered_list.append(patient_status)
-        return len(filtered_list)
+        return sum(1 for patient_status in self._patients_list if status == patient_status)
 
     def calculate_patients_total(self) -> int:
-        patients = [patient for patient in self._patients_list if patient is not None]
-        return len(patients)
+        return sum(1 for patient in self._patients_list if patient is not None)
 
-    def is_any_patients(self, index: int) -> bool:
-        return self._calculate_patients_by_status(index) > 0
-
-    def get_statistics(self, index: int) -> dict:
-        stat = {"status": self._statuses_dict[index], "amount": self._calculate_patients_by_status(index)}
+    def get_statistics(self) -> dict:
+        stat = {}
+        for i in range(4):
+            stat[self._statuses_dict[i]] = self._calculate_patients_by_status(i)
         return stat
+
