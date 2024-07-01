@@ -36,8 +36,9 @@ class Hospital:
         return sum(1 for patient in self._patients_list if patient is not None)
 
     def get_statistics(self) -> dict:
-        stat = {}
-        for i in range(4):
-            stat[self._statuses_dict[i]] = self._calculate_patients_by_status(i)
+        stat = {self._statuses_dict[0]: self._calculate_patients_by_status(0),
+                self._statuses_dict[1]: self._calculate_patients_by_status(1),
+                self._statuses_dict[2]: self._calculate_patients_by_status(2),
+                self._statuses_dict[3]: self._calculate_patients_by_status(3)}
         return stat
 

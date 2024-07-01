@@ -53,7 +53,6 @@ class Commands:
         try:
             if not by_upgrade:
                 index = self._get_and_filter_invalid_id()
-                print(index)
                 if index == -1:
                     return
                 index -= 1
@@ -65,10 +64,10 @@ class Commands:
 
     def calculate_statistics(self):
         patients_amount = self.hospital.calculate_patients_total()
-        stat = f'В больнице на данный момент находится {patients_amount} чел., из них: \n'
+        stat = f'В больнице на данный момент находится {patients_amount} чел., из них:\n'
         for status, amount in self.hospital.get_statistics().items():
             if amount > 0:
-                stat += f'   - в статусе "{status}": {amount} чел. \n'
+                stat += f'   - в статусе "{status}": {amount} чел.\n'
         self.communicator.print_info(stat)
 
     def _get_and_filter_invalid_id(self) -> int:
