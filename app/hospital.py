@@ -8,10 +8,10 @@ class Hospital:
         status_index = self._patients_list[index]
         return self._statuses_dict[status_index]
 
-    def is_patient_valid_for_status_upgrade(self, index: int):
+    def is_patient_valid_for_status_upgrade(self, index: int) -> bool:
         return self._patients_list[index] < 3
 
-    def is_patient_valid_for_status_downgrade(self, index: int):
+    def is_patient_valid_for_status_downgrade(self, index: int) -> bool:
         return self._patients_list[index] > 0
 
     def upgrade_status(self, index: int):
@@ -23,10 +23,10 @@ class Hospital:
     def discharge_patient(self, index: int):
         self._patients_list[index] = None
 
-    def is_patient_discharged(self, id_input: int):
-        return self._patients_list[id_input-1] is None
+    def is_patient_discharged(self, index: int):
+        return self._patients_list[index] is None
 
-    def if_id_in_range(self, id_input: int) -> bool:
+    def is_id_in_range(self, id_input: int) -> bool:
         return id_input in range(len(self._patients_list)+1)
 
     def calculate_patients_total(self) -> int:

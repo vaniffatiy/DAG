@@ -72,7 +72,7 @@ class Commands:
 
     def _get_and_filter_invalid_id(self) -> int:
         id_input = self.communicator.get_id()
-        if not self.hospital.if_id_in_range(id_input) or self.hospital.is_patient_discharged(id_input):
+        if not self.hospital.is_id_in_range(id_input) or self.hospital.is_patient_discharged(id_input-1):
             raise NonExistIDError
         return id_input
 
