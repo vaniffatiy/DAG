@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/hospital.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/steps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_hospital.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_hospital.test_get_patient_status">
+  <component name="RunManager" selected="Python tests.Python tests in test_hospital.py">
     <configuration name="main_draft" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -68,7 +70,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_get_patient_status" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_hospital.test_calculate_patients_total" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -78,7 +80,21 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_get_patient_status&quot;" />
+      <option name="_new_target" value="&quot;test_hospital.test_calculate_patients_total&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_hospital.test_discharge_patient" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DAG_boarding_hospital" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_hospital.test_discharge_patient&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -96,7 +112,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_if_id_in_range" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_hospital.test_is_patient_existent" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -106,11 +122,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_if_id_in_range&quot;" />
+      <option name="_new_target" value="&quot;test_hospital.test_is_patient_existent&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_is_patient_discharged" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests in test_hospital.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,31 +136,17 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_is_patient_discharged&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_hospital.test_is_patient_valid_for_status_upgrade" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="DAG_boarding_hospital" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_is_patient_valid_for_status_upgrade&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_hospital.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_hospital.test_get_patient_status" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_if_id_in_range" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_is_patient_discharged" />
+        <item itemvalue="Python tests.Python tests in test_hospital.py" />
         <item itemvalue="Python tests.Python tests for test_hospital.test_get_statistics" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_is_patient_valid_for_status_upgrade" />
+        <item itemvalue="Python tests.Python tests for test_hospital.test_calculate_patients_total" />
+        <item itemvalue="Python tests.Python tests for test_hospital.test_is_patient_existent" />
+        <item itemvalue="Python tests.Python tests for test_hospital.test_discharge_patient" />
       </list>
     </recent_temporary>
   </component>
@@ -169,16 +171,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/test_hospital.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

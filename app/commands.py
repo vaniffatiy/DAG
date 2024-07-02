@@ -7,27 +7,26 @@ class Commands:
     """Use Cases"""
 
     def __init__(self):
-        self.hospital = Hospital()
+        self.hospital = Hospital([1]*200)
         self.communicator = Communicator()
 
     def get_status_by_id(self):
         try:
-            index = self._get_and_filter_invalid_id()
-            status = self.hospital.get_patient_status(index-1)
+            id_input = self.communicator.get_id()
+            status = self.hospital.get_patient_status(id_input)
             self.communicator.print_patient_status(status)
         except (InvalidIDError, NonExistIDError) as err:
             self.communicator.print_info(err)
 
     def upgrade_status(self):
         try:
-            index = self._get_and_filter_invalid_id()
-            index -= 1
-            if self.hospital.is_patient_valid_for_status_upgrade(index):
-                self.hospital.upgrade_status(index)
-                self.communicator.print_new_patient_status(self.hospital.get_patient_status(index))
+            id_input = self.communicator.get_id()
+            if self.hospital.is_patient_valid_for_status_upgrade(id_input):
+                self.hospital.upgrade_status(id_input)
+                self.communicator.print_new_patient_status(self.hospital.get_patient_status(id_input))
             else:
                 if self.communicator.is_patient_ready_for_discharge():
-                    self.discharge_patient_(index=index, by_upgrade=True)
+                    self.discharge_patient_(id_input=id_input, by_upgrade=True)
                 else:
                     self.communicator.notify_status_unchanged()
         except (InvalidIDError, NonExistIDError) as err:
@@ -36,27 +35,21 @@ class Commands:
 
     def downgrade_status(self):
         try:
-            index = self._get_and_filter_invalid_id()
-            if index is None:
-                return
-            index -= 1
-            if self.hospital.is_patient_valid_for_status_downgrade(index):
-                self.hospital.downgrade_status(index)
-                self.communicator.print_new_patient_status(self.hospital.get_patient_status(index))
+            id_input = self.communicator.get_id()
+            if self.hospital.is_patient_valid_for_status_downgrade(id_input):
+                self.hospital.downgrade_status(id_input)
+                self.communicator.print_new_patient_status(self.hospital.get_patient_status(id_input))
             else:
                 self.communicator.notify_cannot_downgrade_status_error()
         except (InvalidIDError, NonExistIDError) as err:
             self.communicator.print_info(err)
             return
 
-    def discharge_patient_(self, index: int = None, by_upgrade: bool = False):
+    def discharge_patient_(self, id_input: int = None, by_upgrade: bool = False):
         try:
             if not by_upgrade:
-                index = self._get_and_filter_invalid_id()
-                if index == -1:
-                    return
-                index -= 1
-            self.hospital.discharge_patient(index)
+                id_input = self.communicator.get_id()
+            self.hospital.discharge_patient(id_input)
             self.communicator.notify_patient_is_discharged()
         except (InvalidIDError, NonExistIDError) as err:
             self.communicator.print_info(err)
@@ -70,11 +63,6 @@ class Commands:
                 stat += f'   - в статусе "{status}": {amount} чел.\n'
         self.communicator.print_info(stat)
 
-    def _get_and_filter_invalid_id(self) -> int:
-        id_input = self.communicator.get_id()
-        if not self.hospital.is_id_in_range(id_input) or self.hospital.is_patient_discharged(id_input-1):
-            raise NonExistIDError
-        return id_input
 
 
 

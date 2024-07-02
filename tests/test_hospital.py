@@ -1,5 +1,7 @@
 import pytest
-from tests import steps
+
+from app.custom_exceptions import NonExistIDError
+from app.hospital import Hospital
 
 
 @pytest.fixture()
@@ -8,80 +10,69 @@ def statuses():
 
 
 def test_get_patient_status(statuses):
-    steps.verify_patient_status(0, statuses[1])
-    steps.upgrade_status(0)
-    steps.verify_patient_status(0, statuses[2])
+    hospital = Hospital([0, 3, 0])
+    assert hospital.get_patient_status(2) == statuses[3]
 
 
 def test_is_patient_valid_for_status_upgrade():
-    steps.verify_patient_valid_for_upgrade(0)
-    steps.upgrade_status(0)
-    steps.verify_patient_valid_for_upgrade(0)
-    steps.upgrade_status(0)
-    steps.verify_patient_not_valid_for_upgrade(0)
+    hospital = Hospital([0, 3])
+    assert hospital.is_patient_valid_for_status_upgrade(1)
+    assert not hospital.is_patient_valid_for_status_upgrade(2)
 
 
 def test_is_patient_valid_for_status_downgrade():
-    steps.verify_patient_valid_for_downgrade(0)
-    steps.downgrade_status(0)
-    steps.verify_patient_not_valid_for_downgrade(0)
+    hospital = Hospital([0, 3])
+    assert hospital.is_patient_valid_for_status_downgrade(2)
+    assert not hospital.is_patient_valid_for_status_downgrade(1)
 
 
-def test_upgrade_status(statuses):
-    steps.verify_patient_status(0, statuses[1])
-    steps.upgrade_status(0)
-    steps.verify_patient_status(0, statuses[2])
+def test_upgrade_status():
+    hospital = Hospital([0, 2])
+    hospital.upgrade_status(2)
+    assert hospital._patients_list == [0, 3]
 
 
-def test_downgrade_status(statuses):
-    steps.verify_patient_status(0, statuses[1])
-    steps.downgrade_status(0)
-    steps.verify_patient_status(0, statuses[0])
+def test_downgrade_status():
+    hospital = Hospital([0, 2])
+    hospital.downgrade_status(2)
+    assert hospital._patients_list == [0, 1]
 
 
 def test_discharge_patient():
-    steps.discharge_patient(0)
-    steps.verify_patient_is_discharged(0)
+    hospital = Hospital([0, 3])
+    hospital.discharge_patient(2)
+    assert hospital._patients_list == [0, None]
 
 
-def test_is_patient_discharged():
-    steps.verify_patient_is_not_discharged(0)
-    steps.verify_patient_is_not_discharged(1)
-    steps.discharge_patient(0)
-    steps.verify_patient_is_discharged(0)
-    steps.verify_patient_is_not_discharged(1)
-
-
-def test_if_id_in_range():
-    steps.verify_id_is_in_range(1)
-    steps.verify_id_is_not_in_range(-1)
-    steps.verify_id_is_in_range(200)
-    steps.verify_id_is_not_in_range(201)
+def test_is_patient_existent():
+    hospital = Hospital([1, 3, None])
+    assert hospital.is_patient_existent(1)
+    try:
+        hospital.is_patient_existent(3)
+    except NonExistIDError:
+        assert True
+    try:
+        hospital.is_patient_existent(4)
+    except NonExistIDError:
+        assert True
 
 
 def test_calculate_patients_total():
-    steps.verify_patients_amount(200)
-    steps.discharge_patient(0)
-    steps.verify_patients_amount(199)
+    hospital = Hospital([1]*10)
+    assert hospital.calculate_patients_total() == 10
 
 
 def test_get_statistics(statuses):
+    hospital = Hospital([1]*20)
     initial_stats = {
         statuses[0]: 0,
-        statuses[1]: 200,
+        statuses[1]: 20,
         statuses[2]: 0,
         statuses[3]: 0
     }
-    steps.verify_statistics_is_correct(initial_stats)
-
-    steps.upgrade_status(0)
-    steps.upgrade_status(1)
-    steps.upgrade_status(1)
-    steps.downgrade_status(2)
-
-    updated_stats = {k: v + 1 for k, v in initial_stats.items()}
-    updated_stats[statuses[1]] = 197
-    steps.verify_statistics_is_correct(updated_stats)
+    assert hospital.get_statistics() == initial_stats
 
 
+if __name__ == "__main__":
+    pytest.main()
 

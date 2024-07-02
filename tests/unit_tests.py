@@ -31,12 +31,6 @@ class TestCalculateStat(unittest.TestCase):
 
 class TestUpgradeStatus(unittest.TestCase):
     def setUp(self):
-        # self.mock_get_id = mock.MagicMock()
-        # self.mock_invalid_id_error = mock.MagicMock()
-        # self.mock_nonexist_id_error = mock.MagicMock()
-        # self.mock_print_info = mock.MagicMock()
-        # self.mock_communicator = mock.MagicMock()
-        # self.mock_hospital = mock.MagicMock()
         self.commands = Commands()
         self.statuses = ['Тяжело болен', 'Болен', 'Слегка болен', 'Готов к выписке']
 

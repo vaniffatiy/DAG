@@ -28,8 +28,8 @@ def verify_patient_valid_for_downgrade(index: int):
     )
 
 
-def verify_patient_not_valid_for_downgrade(index: int):
-    assert not hospital.is_patient_valid_for_status_downgrade(index), (
+def verify_patient_not_valid_for_downgrade(id_input: int):
+    assert not hospital.is_patient_valid_for_status_downgrade(id_input), (
         "Статус пациента можно снизить"
     )
 
