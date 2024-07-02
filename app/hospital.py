@@ -29,16 +29,14 @@ class Hospital:
     def if_id_in_range(self, id_input: int) -> bool:
         return id_input in range(len(self._patients_list)+1)
 
-    def _calculate_patients_by_status(self, status: int) -> int:
-        return sum(1 for patient_status in self._patients_list if status == patient_status)
-
     def calculate_patients_total(self) -> int:
         return sum(1 for patient in self._patients_list if patient is not None)
 
     def get_statistics(self) -> dict:
-        stat = {self._statuses_dict[0]: self._calculate_patients_by_status(0),
-                self._statuses_dict[1]: self._calculate_patients_by_status(1),
-                self._statuses_dict[2]: self._calculate_patients_by_status(2),
-                self._statuses_dict[3]: self._calculate_patients_by_status(3)}
+        stat = {}
+        for i in range(4):
+            stat[self._statuses_dict[i]] = 0
+        for i in self._patients_list:
+            stat[self._statuses_dict[i]] += 1
         return stat
 

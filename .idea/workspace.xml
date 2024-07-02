@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="023c2436-759e-405c-87cc-8679f308ba7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/data_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/administrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/administrator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/communicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/communicator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/hospital.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -91,9 +88,69 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for unit_tests.TestCalculateStat.test_with_regular_values" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DAG_boarding_hospital" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestCalculateStat.test_with_regular_values&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_invalid_value" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DAG_boarding_hospital" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestUpgradeStatus.test_upgrade_status_with_invalid_value&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DAG_boarding_hospital" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_patient_valid_for_upgrade" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DAG_boarding_hospital" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestUpgradeStatus.test_upgrade_status_with_patient_valid_for_upgrade&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_invalid_value" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestCalculateStat.test_with_regular_values" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_patient_valid_for_upgrade" />
       </list>
     </recent_temporary>
   </component>
@@ -107,5 +164,16 @@
       <updated>1718701216682</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

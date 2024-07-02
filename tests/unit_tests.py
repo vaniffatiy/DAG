@@ -17,10 +17,10 @@ class TestCalculateStat(unittest.TestCase):
         mock_get_stat.return_value = {
             self.statuses[0]: 10, self.statuses[1]: 180, self.statuses[2]: 0, self.statuses[3]: 5
         }
-        stat = f'В больнице на данный момент находится {mock_count_patients.return_value} чел., из них:\n'\
-               f'   - в статусе "{self.statuses[0]}": {mock_get_stat.return_value[self.statuses[0]]} чел.\n' \
-               f'   - в статусе "{self.statuses[1]}": {mock_get_stat.return_value[self.statuses[1]]} чел.\n' \
-               f'   - в статусе "{self.statuses[3]}": {mock_get_stat.return_value[self.statuses[3]]} чел.\n'
+        stat = f'В больнице на данный момент находится {mock_count_patients.return_value} чел., из них:\n'
+        for i in range(4):
+            if i != 2:
+                stat += f'   - в статусе "{self.statuses[i]}": {mock_get_stat.return_value[self.statuses[i]]} чел.\n' \
 
         self.commands.calculate_statistics()
 
