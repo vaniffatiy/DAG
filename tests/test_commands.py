@@ -1,6 +1,5 @@
 from app.commands import Commands
 from app.custom_exceptions import NonExistIDError, InvalidIDError
-from app.hospital import Hospital
 from unittest.mock import MagicMock, patch
 
 import unittest
@@ -9,14 +8,13 @@ import unittest
 class TestCommands(unittest.TestCase):
     def setUp(self):
         self.commands = Commands([1]*10)
-        self.hospital = Hospital([1]*10)
+        self.hospital = self.commands.hospital
         self.statuses = ['Тяжело болен', 'Болен', 'Слегка болен', 'Готов к выписке']
 
     @patch("app.communicator.Communicator.print_info")
     def test_calculate_statistics(self, mock_communicator):
-        patients = self.hospital.calculate_patients_total()
-        ex_stat = f'В больнице на данный момент находится {patients} чел., из них:\n' \
-                  f'   - в статусе "{self.statuses[1]}": {patients} чел.\n'
+        ex_stat = f'В больнице на данный момент находится 10 чел., из них:\n' \
+                  f'   - в статусе "Болен": 10 чел.\n'
 
         self.commands.calculate_statistics()
 
@@ -24,22 +22,17 @@ class TestCommands(unittest.TestCase):
 
     @patch("app.communicator.Communicator.print_info")
     def test_calculate_statistics_after_changes(self, mock_communicator):
-        patients = self.hospital.calculate_patients_total()
-        stat = self.hospital.get_statistics()
-        new_stat = {}
-        for k, v in stat.items():
-            new_stat[k] = v + 1 if k != self.statuses[1] else v - 3
-        expected_stat = {
-            self.statuses[0]: 1, self.statuses[1]: 7, self.statuses[2]: 1, self.statuses[3]: 1
-        }
-        ex_stat = f'В больнице на данный момент находится {patients} чел., из них:\n'
-        for i in range(4):
-            ex_stat += f'   - в статусе "{self.statuses[i]}": {expected_stat[self.statuses[i]]} чел.\n'
+        ex_stat = f'В больнице на данный момент находится 9 чел., из них:\n' \
+                  f'   - в статусе "Тяжело болен": 1 чел.\n' \
+                  f'   - в статусе "Болен": 7 чел.\n' \
+                  f'   - в статусе "Слегка болен": 1 чел.\n' \
 
-        with patch("app.hospital.Hospital.get_statistics", return_value=new_stat) as mock_get_stat:
-            self.commands.calculate_statistics()
+        self.hospital.upgrade_status(1)
+        self.hospital.downgrade_status(2)
+        self.hospital.discharge_patient(3)
+        self.commands.calculate_statistics()
 
-            mock_communicator.assert_called_once_with(ex_stat)
+        mock_communicator.assert_called_once_with(ex_stat)
 
     @patch("app.communicator.Communicator.get_id")
     @patch("app.communicator.Communicator.print_new_patient_status")
