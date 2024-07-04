@@ -87,6 +87,3 @@ def test_get_statistics(statuses):
     assert hospital.get_statistics() == initial_stats
 
 
-if __name__ == "__main__":
-    pytest.main()
-

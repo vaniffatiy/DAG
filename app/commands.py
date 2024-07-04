@@ -30,7 +30,7 @@ class Commands:
                 else:
                     self.communicator.notify_status_unchanged()
         except (InvalidIDError, NonExistIDError) as err:
-            self.communicator.print_info(err)
+            self.communicator.print_info(err.args[0])
             return
 
     def downgrade_status(self):

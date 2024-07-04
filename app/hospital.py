@@ -1,4 +1,4 @@
-from app.custom_exceptions import NonExistIDError
+from app.custom_exceptions import NonExistIDError, InvalidIDError
 
 
 class Hospital:
@@ -39,6 +39,8 @@ class Hospital:
         return id_input in range(len(self._patients_list)+1)
 
     def is_patient_existent(self, id_input: int) -> bool:
+        if not str(id_input).isdigit() or int(id_input) == 0:
+            raise InvalidIDError
         if not self._is_id_in_range(id_input) or self._is_patient_discharged(id_input-1):
             raise NonExistIDError
         return True
@@ -51,6 +53,7 @@ class Hospital:
         for i in range(4):
             stat[self._statuses_dict[i]] = 0
         for i in self._patients_list:
-            stat[self._statuses_dict[i]] += 1
+            if i is not None:
+                stat[self._statuses_dict[i]] += 1
         return stat
 
