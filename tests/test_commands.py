@@ -105,7 +105,7 @@ class TestCommands(unittest.TestCase):
     @patch("app.communicator.Communicator.is_patient_ready_for_discharge")
     @patch("app.communicator.Communicator.notify_status_unchanged")
     @patch("app.hospital.Hospital.is_patient_valid_for_status_upgrade")
-    def test_upgrade_status_with_patient_valid_for_discharge(
+    def test_upgrade_status_with_patient_invalid_for_discharge(
         self, mock_valid_check, mock_notify_unchanged, mock_valid_discharge, mock_get_id
     ):
         mock_get_id.return_value = 1
