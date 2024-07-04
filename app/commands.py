@@ -6,8 +6,8 @@ from app.hospital import Hospital
 class Commands:
     """Use Cases"""
 
-    def __init__(self):
-        self.hospital = Hospital([1]*200)
+    def __init__(self, _patients: list = [1]*200):
+        self.hospital = Hospital(_patients)
         self.communicator = Communicator()
 
     def get_status_by_id(self):

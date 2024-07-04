@@ -7,9 +7,8 @@
     <list default="true" id="023c2436-759e-405c-87cc-8679f308ba7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/hospital.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/steps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_hospital.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test_hospital.py">
+  <component name="RunManager" selected="Python tests.Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value">
     <configuration name="main_draft" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_calculate_patients_total" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for unit_tests.TestCalculateStat.test_calculate_statistics" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,11 +79,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_calculate_patients_total&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestCalculateStat.test_calculate_statistics&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_discharge_patient" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for unit_tests.TestCalculateStat.test_calculate_statistics_simplified" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,11 +93,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_discharge_patient&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestCalculateStat.test_calculate_statistics_simplified&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_get_statistics" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_invalid_value" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,11 +107,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_get_statistics&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestUpgradeStatus.test_upgrade_status_with_invalid_value&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_hospital.test_is_patient_existent" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DAG_boarding_hospital" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,7 +121,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_hospital.test_is_patient_existent&quot;" />
+      <option name="_new_target" value="&quot;unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -142,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_nonexistent_value" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestUpgradeStatus.test_upgrade_status_with_invalid_value" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestCalculateStat.test_calculate_statistics_simplified" />
+        <item itemvalue="Python tests.Python tests for unit_tests.TestCalculateStat.test_calculate_statistics" />
         <item itemvalue="Python tests.Python tests in test_hospital.py" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_get_statistics" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_calculate_patients_total" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_is_patient_existent" />
-        <item itemvalue="Python tests.Python tests for test_hospital.test_discharge_patient" />
       </list>
     </recent_temporary>
   </component>

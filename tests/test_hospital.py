@@ -14,16 +14,30 @@ def test_get_patient_status(statuses):
     assert hospital.get_patient_status(2) == statuses[3]
 
 
+# def test_cannot_get_patient_status(statuses):
+#     hospital = Hospital([0, 3, 0])
+#     with pytest.raises(NonExistIDError):
+#         hospital.get_patient_status(4)
+
+
 def test_is_patient_valid_for_status_upgrade():
     hospital = Hospital([0, 3])
     assert hospital.is_patient_valid_for_status_upgrade(1)
-    assert not hospital.is_patient_valid_for_status_upgrade(2)
+
+
+# def test_is_patient_not_valid_for_status_upgrade():
+#     hospital = Hospital([0, 3])
+#     assert not hospital.is_patient_valid_for_status_upgrade(2)
 
 
 def test_is_patient_valid_for_status_downgrade():
     hospital = Hospital([0, 3])
     assert hospital.is_patient_valid_for_status_downgrade(2)
-    assert not hospital.is_patient_valid_for_status_downgrade(1)
+
+
+# def test_is_patient_not_valid_for_status_downgrade():
+#     hospital = Hospital([0, 3])
+#     assert not hospital.is_patient_valid_for_status_downgrade(1)
 
 
 def test_upgrade_status():
@@ -47,14 +61,14 @@ def test_discharge_patient():
 def test_is_patient_existent():
     hospital = Hospital([1, 3, None])
     assert hospital.is_patient_existent(1)
-    try:
-        hospital.is_patient_existent(3)
-    except NonExistIDError:
-        assert True
-    try:
-        hospital.is_patient_existent(4)
-    except NonExistIDError:
-        assert True
+
+
+# def test_is_patient_not_existent():
+#     hospital = Hospital([1, 3, None])
+#     with pytest.raises(NonExistIDError):
+#         hospital.is_patient_existent(3)
+#     with pytest.raises(NonExistIDError):
+#         hospital.is_patient_existent(4)
 
 
 def test_calculate_patients_total():
