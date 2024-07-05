@@ -8,7 +8,7 @@ import unittest
 class TestCommands(unittest.TestCase):
     def setUp(self):
         self.commands = Commands([1]*10)
-        self.hospital = self.commands.hospital
+        self.hospital = self.commands._hospital
         self.statuses = ['Тяжело болен', 'Болен', 'Слегка болен', 'Готов к выписке']
 
     @patch("app.communicator.Communicator.print_info")

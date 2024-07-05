@@ -1,7 +1,7 @@
 from app.commands import Commands
 
 commands = Commands()
-hospital = commands.hospital
+hospital = commands._hospital
 
 
 def verify_patient_status(index: int, status: str):

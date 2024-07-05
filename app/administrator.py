@@ -5,7 +5,6 @@ class Administrator:
     """Принимает и обрабатывает запрос, запускает нужные команды"""
     def __init__(self):
         self.commands = Commands()
-        self.hospital = self.commands.hospital
         self.communicator = self.commands.communicator
 
     def run_session(self):

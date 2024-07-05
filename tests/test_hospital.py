@@ -58,27 +58,31 @@ def test_is_patient_existent():
     assert hospital.is_patient_existent(1)
 
 
-def test_is_patient_not_existent():
+def test_is_patient_not_existent_discharged():
     hospital = Hospital([1, 3, None])
     with pytest.raises(NonExistIDError):
         hospital.is_patient_existent(3)
+
+
+def test_is_patient_not_existent_off_range():
+    hospital = Hospital([1, 3, None])
     with pytest.raises(NonExistIDError):
         hospital.is_patient_existent(4)
 
 
 def test_calculate_patients_total():
-    hospital = Hospital([1]*10)
-    assert hospital.calculate_patients_total() == 10
+    hospital = Hospital([1, 2, None, 3])
+    assert hospital.calculate_patients_total() == 3
 
 
 def test_get_statistics():
-    hospital = Hospital([1]*20)
-    initial_stats = {
-        "Тяжело болен": 0,
-        "Болен": 20,
-        "Слегка болен": 0,
-        "Готов к выписке": 0
+    hospital = Hospital([0, 1, 1, 2, None, 1, 2, 3])
+    statistics = {
+        "Тяжело болен": 1,
+        "Болен": 3,
+        "Слегка болен": 2,
+        "Готов к выписке": 1
     }
-    assert hospital.get_statistics() == initial_stats
+    assert hospital.get_statistics() == statistics
 
 

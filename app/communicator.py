@@ -47,7 +47,7 @@ class Communicator:
         print("Пациент выписан из больницы")
 
     def notify_unknown_command(self):
-        print(f'Неизвестная команда! Попробуйте ещё раз')
+        print("Неизвестная команда! Попробуйте ещё раз")
 
     def notify_session_end(self):
         print("Сеанс завершён.")
