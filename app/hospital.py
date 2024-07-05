@@ -22,11 +22,13 @@ class Hospital:
 
     def upgrade_status(self, id_input: int):
         if self.is_patient_existent(id_input):
-            self._patients_list[id_input-1] += 1
+            if self.is_patient_valid_for_status_upgrade(id_input):
+                self._patients_list[id_input-1] += 1
 
     def downgrade_status(self, id_input: int):
         if self.is_patient_existent(id_input):
-            self._patients_list[id_input-1] -= 1
+            if self.is_patient_valid_for_status_downgrade(id_input):
+                self._patients_list[id_input-1] -= 1
 
     def discharge_patient(self, id_input: int):
         if self.is_patient_existent(id_input):
